@@ -6,20 +6,25 @@ $muted-color: rgb(184, 181, 181);
 .Footer {
   background: $primary-bg;
   color: $primary-color;
-  padding: 50px 20px; 
+  padding: 20px 0;
 
   .content {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
 
     .block {
       display: flex;
       flex-direction: column;
       gap: 20px;
-      flex: 1 1 200px; 
-      min-width: 250px; 
-
+      flex: 1 1 200px;
+      min-width: 250px;
+      h1 {
+        font-size: 20px;
+      }
+      h2 {
+        font-size: 18px;
+      }
       span {
         color: $muted-color;
       }
@@ -30,8 +35,8 @@ $muted-color: rgb(184, 181, 181);
         input {
           background: transparent;
           border: 1px solid $primary-color;
-          width: 100%; 
-          max-width: 150px; 
+          width: 100%;
+          max-width: 150px;
           border-radius: 5px;
           color: $primary-color;
           padding: 10px;
@@ -39,7 +44,7 @@ $muted-color: rgb(184, 181, 181);
 
         span {
           top: 10px;
-          right: 10px; 
+          right: 10px;
           position: absolute;
         }
       }
@@ -81,7 +86,7 @@ $muted-color: rgb(184, 181, 181);
 
       .spans {
         display: flex;
-        gap: 20px; 
+        gap: 20px;
 
         span {
           color: $primary-color;
@@ -98,33 +103,33 @@ $muted-color: rgb(184, 181, 181);
 
 @media (max-width: 1020px) {
   .Footer {
-    padding: 40px 15px; 
+    padding: 40px 15px;
   }
 
   .content {
-    flex-direction: column; 
-    align-items: flex-start; 
+    flex-direction: column;
+    align-items: flex-start;
 
     .block {
-      min-width: 100%; 
+      min-width: 100%;
     }
   }
 }
 
 @media (max-width: 767px) {
   .Footer {
-    padding: 30px 10px; 
+    padding: 30px 10px;
   }
 
   .content {
     .block {
-      min-width: 100%; 
-      gap: 15px; 
+      min-width: 100%;
+      gap: 15px;
     }
 
     .Quar {
-      flex-direction: column; 
-      align-items: flex-start; 
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 }
