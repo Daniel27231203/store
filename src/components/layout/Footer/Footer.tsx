@@ -7,7 +7,7 @@ import { TiSocialFacebook } from "react-icons/ti";
 import { FiTwitter } from "react-icons/fi";
 import { FaGooglePlay } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
-import Qrg from "../../img/Qrcode 1.png";
+import Qrg from "../../../assets/image/Qrcode 1.png";
 
 const Footer = () => {
 	return (
