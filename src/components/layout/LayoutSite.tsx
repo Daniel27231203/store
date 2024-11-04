@@ -5,7 +5,7 @@ import scss from "./LayoutSite.module.scss";
 import ReduxProvider from "@/providers/ReduxProvider";
 
 interface LayoutProps {
-  children: ReactNode;
+	children: ReactNode;
 }
 const LayoutSite: FC<LayoutProps> = ({ children }) => {
   return (
@@ -17,6 +17,7 @@ const LayoutSite: FC<LayoutProps> = ({ children }) => {
       </div>
     </ReduxProvider>
   );
+
 };
 
 export default LayoutSite;

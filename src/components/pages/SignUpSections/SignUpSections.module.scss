@@ -1,0 +1,65 @@
+.SignUpSections {
+	padding: 2pc 0;
+	.content {
+    .photo{
+      width: 700px;
+    }
+		display: flex;
+		align-items: center;
+    justify-content: space-between;
+		.SignUp {
+			display: flex;
+      gap: 30px;
+
+			flex-direction: column;
+			input {
+				background: transparent;
+        width: 330px; 
+        font-size: 18px;
+        outline: none;
+        // padding: 20px 30px 10px 20px;
+        border: none;
+  
+			}
+      .log{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+      }
+      h2{
+        width: 330px;
+        background: gray;
+        height: 2px;
+      }
+      button{
+        background: orangered;
+        width: 330px;
+        border-radius: 5px;
+        color: white;
+        font-size: 20px;
+        border: none;
+        padding: 16px;
+      }
+      .google{
+        span{
+          font-size: 25px;
+          display: flex;
+          h3{
+            width: 100px;
+            height: 2px;
+            background: gray;
+          }
+        }
+        background: none;
+        display: flex;
+        padding: 12px;
+        gap: 10px;
+       justify-content: center;
+        align-items: center;
+        border: 1px solid gray;
+        color: black;
+      }
+		}
+	}
+}
