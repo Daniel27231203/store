@@ -9,7 +9,7 @@ export const links = [{
     link: "/about"
 }, {
     name: "Sigin Up",
-    link: "/siginUp"
+    link: "/auth/sign-up"
 },
 {
     name: 'Admin',
