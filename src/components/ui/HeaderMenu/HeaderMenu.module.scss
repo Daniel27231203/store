@@ -1,0 +1,49 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 250px;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 20; // Убедитесь, что меню выше затмения
+}
+
+.menuActive {
+  transform: translateX(0);
+}
+
+.navLink {
+  color: #000;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: #555;
+}
+
+// Затмение фона
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); // Полупрозрачный черный цвет
+  z-index: 10; // Убедитесь, что он ниже меню
+  display: none; // Скрыт по умолчанию
+}
+
+.overlay.active {
+  display: block; // Показать затмение, когда активно
+}
