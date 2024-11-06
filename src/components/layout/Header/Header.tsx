@@ -9,6 +9,7 @@ import { MdOutlineMenu } from "react-icons/md";
 import HeaderMenu from "@/components/ui/HeaderMenu/HeaderMenu";
 import Link from "next/link";
 import { FaUserCircle } from "react-icons/fa";
+import { links } from "@/constants/link";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,18 +24,13 @@ const Header = () => {
         <div className={scss.content}>
           <div className={scss.logo}>Exclusive</div>
           <nav className={scss.nav}>
-            <Link href={"/"} className={scss.navLink}>
-              Home
-            </Link>
-            <Link href={"/contact"} className={scss.navLink}>
-              Contact
-            </Link>
-            <Link href={"/about"} className={scss.navLink}>
-              About
-            </Link>
-            <Link href={"/siginUp"} className={scss.navLink}>
-              Sign Up
-            </Link>
+            {links.map((el, index) => (
+              <div key={index}>
+                <Link href={el.link} className={scss.navLink}>
+                  {el.name}
+                </Link>
+              </div>
+            ))}
           </nav>
           <div className={scss.searchContainer}>
             <input
