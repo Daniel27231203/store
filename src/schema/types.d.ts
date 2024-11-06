@@ -4,3 +4,10 @@ interface SingUpUser {
   username: string;
   photo: string;
 }
+
+interface SingUpResponse {
+  message: string;
+  accessToken: string;
+  accessTokenExpiration: string;
+  refreshToken: string;
+}

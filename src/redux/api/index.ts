@@ -7,9 +7,21 @@ import {
 const baseQuery = fetchBaseQuery({
   baseUrl: `${process.env.NEXT_PUBLIC_API_URL}/api/v1`,
 
-  // prepareHeaders: (headers) => {
+  prepareHeaders: (headers) => {
+    try {
+      const storedTokens = localStorage.getItem("token");
+      const accessToken: SingUpResponse = storedTokens
+        ? JSON.parse(storedTokens)
+        : {};
 
-  // },
+      if (accessToken?.accessToken) {
+        headers.set("Authorization", `Bearer ${accessToken.accessToken}`);
+      }
+    } catch (error) {
+      console.error("Ошибка при чтении токена из localStorage:", error);
+    }
+    return headers;
+  },
 });
 
 const baseQueryExtended: BaseQueryFn = async (args, api, extraOptions) => {

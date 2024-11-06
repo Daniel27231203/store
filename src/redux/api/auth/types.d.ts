@@ -1,4 +1,4 @@
 namespace AUTH {
-  type GetSingUpResponse = SingUpUser;
+  type GetSingUpResponse = SingUpResponse;
   type GetSingUpRequest = SingUpUser;
 }
