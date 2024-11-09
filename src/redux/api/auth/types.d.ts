@@ -12,4 +12,7 @@ namespace AUTH {
     email: string;
     password: string;
   };
+
+  type GetMeResponse = ApiResponse;
+  type GetMeRequest = void;
 }

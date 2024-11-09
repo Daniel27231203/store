@@ -23,3 +23,17 @@ interface RessetPassword {
   newPassword: string;
 
 }
+interface Profile {
+  id: string;
+  username: string;
+  role: string;
+  email: string;
+  isActive: string;
+  photo: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface ApiResponse {
+  profile: Profile;
+}
