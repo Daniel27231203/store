@@ -6,20 +6,20 @@ interface SingUpUser {
 }
 
 interface SingUpResponse {
-  message: string;
+  message?: string;
   accessToken: string;
   accessTokenExpiration: string;
   refreshToken: string;
 }
-interface IProfile {
-  profile: {
-    id: string
-    username: string
-    role: string
-    email: string
-    isActive: string
-    photo: string
-    createdAt: string
-    updatedAt: string
-  }
+
+
+interface ForgotPasswordResponse {
+  email: string;
+  frontEndUrl: string;
+}
+
+interface RessetPassword {
+  token: string;
+  newPassword: string;
+
 }

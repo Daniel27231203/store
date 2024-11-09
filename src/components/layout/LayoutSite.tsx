@@ -1,11 +1,13 @@
-import { FC, ReactNode } from "react";
+"use client";
+import { FC, ReactNode, useMemo } from "react";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import scss from "./LayoutSite.module.scss";
 import ReduxProvider from "@/providers/ReduxProvider";
+import { usePathname } from "next/navigation";
 
 interface LayoutProps {
-	children: ReactNode;
+  children: ReactNode;
 }
 const LayoutSite: FC<LayoutProps> = ({ children }) => {
   return (
@@ -17,7 +19,6 @@ const LayoutSite: FC<LayoutProps> = ({ children }) => {
       </div>
     </ReduxProvider>
   );
-
 };
 
 export default LayoutSite;
