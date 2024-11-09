@@ -8,11 +8,13 @@ import { CiSearch } from "react-icons/ci";
 import { MdOutlineMenu } from "react-icons/md";
 import HeaderMenu from "@/components/ui/HeaderMenu/HeaderMenu";
 import Link from "next/link";
-import { FaUserCircle } from "react-icons/fa";
 import { links } from "@/constants/link";
+import { useGetMeQuery } from "@/redux/api/auth";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { data } = useGetMeQuery();
+  console.log("🚀 ~ Header ~ data:", data);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -26,9 +28,24 @@ const Header = () => {
           <nav className={scss.nav}>
             {links.map((el, index) => (
               <div key={index}>
-                <Link href={el.link} className={scss.navLink}>
-                  {el.name}
-                </Link>
+                {!data ? (
+                  index > -1 && index < 3 ? (
+                    <Link href={el.link} className={scss.navLink}>
+                      {el.name}
+                    </Link>
+                  ) : (
+                    <Link
+                      href={el.link}
+                      className={`${scss.navLink} ${scss.signUP}`}
+                    >
+                      {el.name}
+                    </Link>
+                  )
+                ) : (
+                  <Link href={el.link} className={scss.navLink}>
+                    {el.name}
+                  </Link>
+                )}
               </div>
             ))}
           </nav>
@@ -58,10 +75,12 @@ const Header = () => {
             >
               <MdOutlineMenu />{" "}
             </span>
-            <Link href={"/admin"} className={scss.adminBtn}>
-              {" "}
-              <FaUserCircle />{" "}
-            </Link>
+            {data ? (
+              <Link href={"/admin"} className={scss.adminBtn}>
+                {" "}
+                <img src={data.profile.photo} alt={data.profile.username} />
+              </Link>
+            ) : null}
           </div>
 
           <HeaderMenu isMenuOpen={isMenuOpen} />

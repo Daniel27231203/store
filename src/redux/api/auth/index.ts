@@ -34,6 +34,13 @@ const api = index.injectEndpoints({
       }),
       invalidatesTags: ["auth"],
     }),
+    getMe: build.query<AUTH.GetMeResponse, AUTH.GetMeRequest>({
+      query: () => ({
+        url: "/auth/user",
+        method: "GET",
+      }),
+      providesTags: ["me"],
+    }),
   }),
 });
 
@@ -42,4 +49,5 @@ export const {
   useForgotMutation,
   useResetMutation,
   useSignInMutation,
+  useGetMeQuery,
 } = api;
