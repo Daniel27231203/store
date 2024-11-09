@@ -1,0 +1,35 @@
+.Forgot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  .content {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    input {
+      background: transparent;
+      width: 330px;
+      font-size: 18px;
+      outline: none;
+      border: none;
+      border-bottom: 2px solid gray;
+      padding: 10px 5px;
+    }
+    button {
+      background: white;
+      border-radius: 5px;
+      color: orangered;
+      font-size: 20px;
+      border: none;
+      padding: 16px;
+      cursor: pointer;
+      &:hover {
+        background: orangered;
+        color: white;
+      }
+    }
+  }
+}

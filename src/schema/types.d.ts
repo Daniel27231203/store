@@ -11,3 +11,13 @@ interface SingUpResponse {
   accessTokenExpiration: string;
   refreshToken: string;
 }
+
+interface ForgotPasswordResponse {
+  email: string;
+  frontEndUrl: string;
+}
+
+interface RessetPassword {
+  token: string;
+  newPassword: string;
+}
