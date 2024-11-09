@@ -10,7 +10,23 @@ const api = index.injectEndpoints({
       }),
       invalidatesTags: ["auth"],
     }),
+    forgot: build.mutation<AUTH.ForgotResponse, AUTH.ForgotRequest>({
+      query: (data) => ({
+        url: "/auth/forgot",
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["auth"],
+    }),
+    reset: build.mutation<AUTH.ForgotResponse, AUTH.RessetRequest>({
+      query: (data) => ({
+        url: "/auth/reset-password",
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags: ["auth"],
+    }),
   }),
 });
 
-export const { useSignUpMutation } = api;
+export const { useSignUpMutation, useForgotMutation, useResetMutation } = api;
