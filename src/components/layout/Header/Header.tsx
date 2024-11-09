@@ -73,14 +73,16 @@ const Header = () => {
               aria-label="menu"
               onClick={toggleMenu}
             >
-              <MdOutlineMenu />{" "}
+              <MdOutlineMenu />
             </span>
+
             {data ? (
-              <Link href={"/admin"} className={scss.adminBtn}>
+              <Link href={"/profile"} className={scss.adminBtn}>
                 {" "}
                 <img src={data.profile.photo} alt={data.profile.username} />
               </Link>
             ) : null}
+
           </div>
 
           <HeaderMenu isMenuOpen={isMenuOpen} />
