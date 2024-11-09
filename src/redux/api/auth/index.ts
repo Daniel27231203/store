@@ -26,7 +26,20 @@ const api = index.injectEndpoints({
       }),
       invalidatesTags: ["auth"],
     }),
+    signIn: build.mutation<AUTH.GetSingInResponse, AUTH.GetSingInRequest>({
+      query: (data) => ({
+        url: "/auth/sign-in",
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["auth"],
+    }),
   }),
 });
 
-export const { useSignUpMutation, useForgotMutation, useResetMutation } = api;
+export const {
+  useSignUpMutation,
+  useForgotMutation,
+  useResetMutation,
+  useSignInMutation,
+} = api;

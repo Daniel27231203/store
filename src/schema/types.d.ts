@@ -6,7 +6,7 @@ interface SingUpUser {
 }
 
 interface SingUpResponse {
-  message: string;
+  message?: string;
   accessToken: string;
   accessTokenExpiration: string;
   refreshToken: string;

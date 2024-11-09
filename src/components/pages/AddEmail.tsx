@@ -29,6 +29,7 @@ const AddEmail: FC = () => {
     <section className={scss.AddEmail}>
       <div className="container">
         <div className={scss.content}>
+          напишите ваш Email для отправки пароли!
           <form onSubmit={handleSubmit(onSubmit)} action="">
             <input
               type="text"
