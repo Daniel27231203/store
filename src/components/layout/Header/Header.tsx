@@ -56,11 +56,11 @@ const Header = () => {
               aria-label="menu"
               onClick={toggleMenu}
             >
-              <MdOutlineMenu />{" "}
+              <MdOutlineMenu />
             </span>
-            <Link href={"/admin"} className={scss.adminBtn}>
-              {" "}
-              <FaUserCircle />{" "}
+            <Link href={"/profile"} className={scss.adminBtn}>
+            
+              <FaUserCircle />
             </Link>
           </div>
 
