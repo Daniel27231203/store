@@ -22,7 +22,7 @@ const Forgot: FC = () => {
 
     if (data) {
       alert("Пароль успешно изменен!");
-      router.push("/sign-in");
+      router.push("/auth/sign-in");
     } else {
       alert("Токен недействителен или устарел!");
       router.push("/auth/addEmail");
