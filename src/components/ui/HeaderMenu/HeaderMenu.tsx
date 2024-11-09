@@ -15,7 +15,7 @@ const HeaderMenu:FC<IHeaderMenuProps> = ({isMenuOpen }) => {
       <Link href={'/contact'} className={scss.navLink}>Contact</Link>
       <Link href={'/about'} className={scss.navLink}>About</Link>
       <Link href={'/siginUp'} className={scss.navLink}>Sign Up</Link>
-      <Link href={'/admin'}  className={scss.navLink}> <FaUserCircle /> </Link>
+      <Link href={'/profile'}  className={scss.navLink}> <FaUserCircle /> </Link>
 
     </nav>
   );

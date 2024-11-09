@@ -12,6 +12,7 @@ interface SingUpResponse {
   refreshToken: string;
 }
 
+
 interface ForgotPasswordResponse {
   email: string;
   frontEndUrl: string;
@@ -20,4 +21,5 @@ interface ForgotPasswordResponse {
 interface RessetPassword {
   token: string;
   newPassword: string;
+
 }
