@@ -1,0 +1,69 @@
+.SlickPage {
+	.content {
+		width: 1000px;
+    background: black;
+		.box {
+			display: flex;
+			color: white;
+      justify-content: space-between;
+			// gap: 50px;
+			// align-items: center;
+			width: 1000px;
+			padding: 5px;
+			background: black;
+			.box2 {
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+
+				padding: 4pc 0 0 4pc;
+				h1 {
+					font-size: 50px;
+					font-family: "Courier New", Courier, monospace;
+				}
+				h2 {
+					border-bottom: 1px solid rgb(184, 183, 183);
+					width: 105px;
+				}
+				.apple {
+					display: flex;
+					align-items: center;
+					gap: 20px;
+				}
+			}
+		}
+    .boxes {
+			display: flex;
+			color: white;
+      justify-content: space-between;
+	
+			width: 1000px;
+			padding: 5px;
+		
+			.box2 {
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+
+				padding: 4pc 0 0 4pc;
+				h1 {
+					font-size: 50px;
+					font-family: "Courier New", Courier, monospace;
+				}
+				h2 {
+					border-bottom: 1px solid rgb(184, 183, 183);
+					width: 105px;
+				}
+				.apple {
+					display: flex;
+					align-items: center;
+					gap: 20px;
+				}
+			}
+      .photo{
+        padding: 40px  0 0 40px;
+        
+      }
+		}
+	}
+}
