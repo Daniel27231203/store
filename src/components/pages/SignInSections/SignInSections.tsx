@@ -26,7 +26,7 @@ const SignInSections = () => {
     try {
       const { data: infa } = await signInMutation(userData);
       localStorage.setItem("token", JSON.stringify(infa));
-      router.push("/");
+      router.push("/auth/profile");
       window.location.reload();
       reset();
     } catch (err) {

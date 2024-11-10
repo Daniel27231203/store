@@ -27,8 +27,10 @@ const SignUpSections = () => {
     };
 
     try {
-      const res = await signUpMutation(userData).unwrap();
-      localStorage.setItem("token", JSON.stringify(res));
+
+      const { data } = await signUpMutation(userData);
+      localStorage.setItem("token", JSON.stringify(data));
+
       router.push("/");
       reset();
     } catch (err) {

@@ -41,6 +41,13 @@ const api = index.injectEndpoints({
       }),
       providesTags: ["me"],
     }),
+    refresh: build.mutation<SingUpResponse, { refresh: string }>({
+      query: (refresh) => ({
+        url: "/auth/user",
+        method: "PATCH",
+        body: refresh,
+      }),
+      invalidatesTags: ["auth"],
     getProfile: build.mutation<AUTH.GetProfileResponse, AUTH.GetProfileRequest>({
       query: (data) => ({
         url: "/auth/update-profile",
@@ -48,6 +55,7 @@ const api = index.injectEndpoints({
         body:data
       }),
       invalidatesTags: ["me"],
+
     }),
   }),
 });
@@ -59,4 +67,5 @@ export const {
   useGetProfileMutation,
   useSignInMutation,
   useGetMeQuery,
+  useRefreshMutation,
 } = api;

@@ -81,7 +81,6 @@ const Header = () => {
                 <img src={data.profile.photo} alt={data.profile.username} />
               </Link>
             ) : null}
-
           </div>
 
           <HeaderMenu isMenuOpen={isMenuOpen} />
