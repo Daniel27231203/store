@@ -41,6 +41,14 @@ const api = index.injectEndpoints({
       }),
       providesTags: ["me"],
     }),
+    refresh: build.mutation<SingUpResponse, { refresh: string }>({
+      query: (refresh) => ({
+        url: "/auth/user",
+        method: "PATCH",
+        body: refresh,
+      }),
+      invalidatesTags: ["auth"],
+    }),
   }),
 });
 
@@ -50,4 +58,5 @@ export const {
   useResetMutation,
   useSignInMutation,
   useGetMeQuery,
+  useRefreshMutation,
 } = api;

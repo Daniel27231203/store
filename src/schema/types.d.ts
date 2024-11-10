@@ -12,7 +12,6 @@ interface SingUpResponse {
   refreshToken: string;
 }
 
-
 interface ForgotPasswordResponse {
   email: string;
   frontEndUrl: string;
@@ -21,7 +20,6 @@ interface ForgotPasswordResponse {
 interface RessetPassword {
   token: string;
   newPassword: string;
-
 }
 interface Profile {
   id: string;
@@ -37,3 +35,30 @@ interface Profile {
 interface ApiResponse {
   profile: Profile;
 }
+
+// posts
+type User = {
+  id: number;
+  username: string;
+  role: "USER" | "ADMIN"; // если роли могут быть разные, добавьте варианты здесь
+  email: string;
+  isActive: boolean;
+  photo: string;
+  createdAt: string; // можно использовать Date, если планируется преобразование
+  updatedAt: string;
+};
+
+type Product = {
+  id: number;
+  title: string;
+  price: string;
+  category: string;
+  description: string;
+  image: string;
+  createdAt: string; // можно заменить на Date, если требуется
+  updatedAt: string;
+  salePrice: number;
+  rating: number;
+
+  user: User;
+};

@@ -1,10 +1,10 @@
 "use client";
-import { FC, ReactNode, useMemo } from "react";
+import { FC, ReactNode } from "react";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import scss from "./LayoutSite.module.scss";
 import ReduxProvider from "@/providers/ReduxProvider";
-import { usePathname } from "next/navigation";
+import SessionProvider from "@/providers/SessionProvider";
 
 interface LayoutProps {
   children: ReactNode;
@@ -12,11 +12,13 @@ interface LayoutProps {
 const LayoutSite: FC<LayoutProps> = ({ children }) => {
   return (
     <ReduxProvider>
-      <div className={scss.layout}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </div>
+      <SessionProvider>
+        <div className={scss.layout}>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </div>
+      </SessionProvider>
     </ReduxProvider>
   );
 };

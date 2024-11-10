@@ -23,9 +23,8 @@ const SignUpSections = () => {
     };
 
     try {
-      const res = await signUpMutation(userData).unwrap();
-      console.log("🚀 ~ constonSubmit:SubmitHandler<SingUpUser>= ~ res:", res);
-      localStorage.setItem("token", JSON.stringify(res));
+      const { data } = await signUpMutation(userData);
+      localStorage.setItem("token", JSON.stringify(data));
       router.push("/");
       reset();
     } catch (err) {

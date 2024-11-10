@@ -14,7 +14,6 @@ import { useGetMeQuery } from "@/redux/api/auth";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { data } = useGetMeQuery();
-  console.log("🚀 ~ Header ~ data:", data);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -82,7 +81,6 @@ const Header = () => {
                 <img src={data.profile.photo} alt={data.profile.username} />
               </Link>
             ) : null}
-
           </div>
 
           <HeaderMenu isMenuOpen={isMenuOpen} />
