@@ -18,4 +18,8 @@ namespace AUTH {
 
   type GetProfileResponse = string;
   type GetProfileRequest = IProfile;
+  type logOutResponse = {
+    message: string;
+  };
+  type logOutRequest = void;
 }

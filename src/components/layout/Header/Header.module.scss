@@ -67,10 +67,14 @@
       align-items: center;
       gap: 20px;
       font-size: 20px;
+      position: relative;
       .menuBtn {
         display: none;
       }
       .adminBtn {
+        border: none;
+        background: none;
+        cursor: pointer;
         img {
           width: 40px;
           height: 40px;

@@ -12,10 +12,8 @@
     &__container {
       display: flex;
       align-items: center;
-      justify-content: center;
-      overflow-x: auto;
+      justify-content: space-between;
       padding: 1rem;
-      gap: 1rem;
 
       .category {
         background-color: #f9f9f9;
@@ -23,7 +21,7 @@
         border-radius: 8px;
         padding: 50px 0px;
         text-align: center;
-        min-width: 400px;
+        min-width: 300px;
         height: 200px;
         transition: all 0.3s ease;
         cursor: pointer;
