@@ -3,6 +3,7 @@ import { FC } from "react";
 import scss from "./Product.module.scss";
 import { FaStar } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+import { FaRegHeart } from "react-icons/fa6";
 
 interface ProductProps {
   photo: string;
@@ -26,6 +27,9 @@ const Product: FC<ProductProps> = ({
       {photo.length ? (
         <div className={scss.imageBg}>
           <img src={photo} alt={title} />
+          <button className={scss.faHearr}>
+            <FaRegHeart />
+          </button>
         </div>
       ) : (
         <div>

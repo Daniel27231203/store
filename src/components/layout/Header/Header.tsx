@@ -10,9 +10,11 @@ import HeaderMenu from "@/components/ui/HeaderMenu/HeaderMenu";
 import Link from "next/link";
 import { links } from "@/constants/link";
 import { useGetMeQuery } from "@/redux/api/auth";
+import AdminBox from "@/components/ui/HeaderMenu/AminBox";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [modal, setModal] = useState<boolean>(false);
   const { data } = useGetMeQuery();
 
   const toggleMenu = () => {
@@ -67,6 +69,7 @@ const Header = () => {
             <span aria-label="cart">
               <PiShoppingCartSimpleLight />
             </span>
+
             <span
               className={scss.menuBtn}
               aria-label="menu"
@@ -74,13 +77,18 @@ const Header = () => {
             >
               <MdOutlineMenu />
             </span>
-
             {data ? (
-              <Link href={"/auth/profile"} className={scss.adminBtn}>
+              <button
+                onClick={() => {
+                  setModal(!modal);
+                }}
+                className={scss.adminBtn}
+              >
                 {" "}
                 <img src={data.profile.photo} alt={data.profile.username} />
-              </Link>
+              </button>
             ) : null}
+            {modal ? <AdminBox /> : null}
           </div>
 
           <HeaderMenu isMenuOpen={isMenuOpen} />
