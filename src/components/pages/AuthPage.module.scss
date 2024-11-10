@@ -1,0 +1,65 @@
+
+
+
+.notRegistered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 55vh;
+    padding: 2rem;
+    text-align: center;
+    background: #f9f9f9;
+
+  
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-family: sans-serif;
+    }
+  
+    p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 2rem;
+      font-family: sans-serif;
+    }
+  
+    .actions {
+      display: flex;
+      gap: 1rem;
+  
+      .signUpButton,
+      .signInButton {
+        padding: 0.5rem 1.5rem;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background-color: #ddd;
+        }
+      }
+  
+      .signUpButton {
+        background-color: #007bff;
+        color: #fff;
+  
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+  
+      .signInButton {
+        background-color: #6c757d;
+        color: #fff;
+  
+        &:hover {
+          background-color: #5a6268;
+        }
+      }
+    }
+  }
+  
