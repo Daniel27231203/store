@@ -3,27 +3,22 @@
 import React, { FC, useState } from "react";
 import scss from "./SignUpSections.module.scss";
 import { FcGoogle } from "react-icons/fc";
-import { IoIosEyeOff, IoIosEye } from "react-icons/io";
+
 import img from "../../../assets/image/phone.png";
 import Link from "next/link";
 import { useSignUpMutation } from "@/redux/api/auth";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 
-type SignUpUser = {
-  email: string;
-  password: string;
-  username: string;
-  photo: string;
-};
 
 const SignUpSections = () => {
   const [signUpMutation] = useSignUpMutation();
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<SignUpUser>();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<SingUpUser>();
   const [icon, setIcon] = useState(false);
   const router = useRouter();
 
-  const onSubmit: SubmitHandler<SignUpUser> = async (data) => {
+  const onSubmit: SubmitHandler<SingUpUser> = async (data) => {
     const userData = {
       email: data.email,
       password: data.password,
@@ -33,7 +28,6 @@ const SignUpSections = () => {
 
     try {
       const res = await signUpMutation(userData).unwrap();
-      console.log("🚀 ~ onSubmit response:", res);
       localStorage.setItem("token", JSON.stringify(res));
       router.push("/");
       reset();
