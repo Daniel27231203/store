@@ -48,15 +48,17 @@ const api = index.injectEndpoints({
         body: refresh,
       }),
       invalidatesTags: ["auth"],
-    getProfile: build.mutation<AUTH.GetProfileResponse, AUTH.GetProfileRequest>({
-      query: (data) => ({
-        url: "/auth/update-profile",
-        method: "PATCH",
-        body:data
-      }),
-      invalidatesTags: ["me"],
-
     }),
+    getProfile: build.mutation<AUTH.GetProfileResponse, AUTH.GetProfileRequest>(
+      {
+        query: (data) => ({
+          url: "/auth/update-profile",
+          method: "PATCH",
+          body: data,
+        }),
+        invalidatesTags: ["me"],
+      }
+    ),
   }),
 });
 

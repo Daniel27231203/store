@@ -37,7 +37,13 @@
           .day {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 20px;
+            .dote {
+              font-size: 25px;
+              font-weight: 1000;
+              color: rgb(219, 68, 68);
+              margin-top: 20px;
+            }
             .dayBox {
               display: flex;
               flex-direction: column;
@@ -92,7 +98,7 @@
         transition: transform 0.3s ease;
         cursor: pointer;
         &:hover {
-          background: orangered;
+          background: rgb(219, 68, 68);
           color: white;
           transform: scale(1.1);
         }
