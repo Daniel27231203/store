@@ -37,3 +37,8 @@ interface Profile {
 interface ApiResponse {
   profile: Profile;
 }
+
+interface IProfile{
+  username: string
+  photo: string
+}

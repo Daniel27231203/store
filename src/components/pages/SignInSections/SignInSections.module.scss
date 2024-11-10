@@ -31,8 +31,15 @@
 			form {
 				margin-top: 10px;
 				display: flex;
+				position: relative;
 				flex-direction: column;
 				gap: 30px;
+				span{
+					position: absolute;
+					bottom: 6pc;
+					right: 20px;
+					font-size: 20px;
+				}
 				input {
 					background: transparent;
 					width: 330px;

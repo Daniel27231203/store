@@ -1,13 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import scss from "./SignInSections.module.scss";
 
 import img from "../../../assets/image/phone.png";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { useSignInMutation } from "@/redux/api/auth";
-
+import { IoIosEyeOff, IoIosEye } from "react-icons/io";
 interface Value {
   email: string;
   password: string;
@@ -17,7 +17,7 @@ const SignInSections = () => {
   const [signInMutation] = useSignInMutation();
   const router = useRouter();
   const { register, handleSubmit, reset } = useForm<Value>();
-
+  const [icon, setIcon] = useState(false);
   const onSubmit: SubmitHandler<Value> = async (data) => {
     const userData = {
       email: data.email,
@@ -35,6 +35,9 @@ const SignInSections = () => {
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setIcon(prev => !prev);
+  };
   return (
     <div className={scss.SignInSections}>
       <div className="container">
@@ -52,14 +55,17 @@ const SignInSections = () => {
                 {...register("email", { required: true })}
               />
               <input
-                type="password" // Изменено для безопасности
+                type={icon?"text":"password"} 
                 placeholder="Password"
                 {...register("password", { required: true })}
               />
+                 <span onClick={togglePasswordVisibility}>
+                  {icon ? <IoIosEye /> : <IoIosEyeOff />}
+                </span>
               <div className={scss.log}>
                 <button type="submit">Log in</button>
                 <button
-                  type="button" // Установлено, чтобы предотвратить отправку формы
+                  type="button" 
                   onClick={() => router.push("/auth/addEmail")}
                 >
                   Forget Password

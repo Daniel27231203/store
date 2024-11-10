@@ -17,7 +17,13 @@
         align-items: center;
         flex-direction: column;
         gap: 20px;
-
+position: relative;
+span{
+  position: absolute;
+  right: 20px;
+  bottom: 5pc;
+  font-size: 22px;
+}
         input {
           background: transparent;
           width: 330px;
