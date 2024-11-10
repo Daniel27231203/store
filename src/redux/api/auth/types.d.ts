@@ -15,4 +15,7 @@ namespace AUTH {
 
   type GetMeResponse = ApiResponse;
   type GetMeRequest = void;
+
+  type GetProfileResponse = string;
+  type GetProfileRequest = IProfile;
 }
