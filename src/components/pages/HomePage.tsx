@@ -3,6 +3,8 @@ import React from "react";
 import Sale from "./HomeSections/Sale";
 import { useGetMeQuery } from "@/redux/api/auth";
 import Loading from "../modals/Loading/Loading";
+import Hero from "./HomeSections/Hero";
+import CategoriesSection from "./HomeSections/CategoriesSection";
 
 const HomePage = () => {
   const { data, isLoading } = useGetMeQuery();
@@ -23,7 +25,9 @@ const HomePage = () => {
       )}
       {data ? (
         <>
+          <Hero />
           <Sale />
+          <CategoriesSection />
         </>
       ) : null}
     </>
@@ -31,4 +35,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-

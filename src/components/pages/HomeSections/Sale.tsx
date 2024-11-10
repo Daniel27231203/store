@@ -52,14 +52,19 @@ const Sale: FC = () => {
                     <span>Days</span>
                     <h4>{day}</h4>
                   </div>
+                  <span className={scss.dote}>:</span>
                   <div className={scss.dayBox}>
                     <span>Hours</span>
                     <h4>{hours}</h4>
                   </div>
+                  <span className={scss.dote}>:</span>
+
                   <div className={scss.dayBox}>
                     <span>Minutes</span>
                     <h4>{minutes}</h4>
                   </div>
+                  <span className={scss.dote}>:</span>
+
                   <div className={scss.dayBox}>
                     <span>Seconds</span>
                     <h4>{seconds}</h4>

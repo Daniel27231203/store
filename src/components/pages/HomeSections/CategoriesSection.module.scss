@@ -1,16 +1,14 @@
-.categoriesSecton{
-    margin-top: 10px;
-}
-.categories {
-  
+.categoriesSecton {
+  padding: 40px 0;
+  .categories {
     h2 {
       text-align: center;
       padding: 0.5rem;
       font-size: 1.5rem;
-      margin-bottom: 1rem;  
+      margin-bottom: 1rem;
       font-family: sans-serif;
     }
-  
+
     &__container {
       display: flex;
       align-items: center;
@@ -18,53 +16,54 @@
       overflow-x: auto;
       padding: 1rem;
       gap: 1rem;
-  
+
       .category {
         background-color: #f9f9f9;
         border: 1px solid #ddd;
         border-radius: 8px;
         padding: 50px 0px;
         text-align: center;
-        min-width: 250px;
+        min-width: 400px;
         height: 200px;
         transition: all 0.3s ease;
-  
+        cursor: pointer;
+
         &:hover {
           transform: scale(1.05);
           border-color: #ff6347;
           background: rgb(219, 68, 68);
           color: #ddd;
         }
-  
+
         &__icon {
           font-size: 40px;
           margin-bottom: 0.5rem;
         }
-  
+
         &__name {
           font-size: 20px;
           color: #333;
           font-family: sans-serif;
         }
-       
       }
     }
-  
+
     &__navigation {
       display: flex;
       justify-content: center;
       margin-top: 1rem;
-  
+
       .nav-button {
         background-color: transparent;
         border: none;
         font-size: 1.5rem;
         cursor: pointer;
         padding: 0 1rem;
-  
+
         &:hover {
           color: #ff6347;
         }
       }
     }
   }
+}
