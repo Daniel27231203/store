@@ -62,3 +62,9 @@ type Product = {
 
   user: User;
 };
+
+interface IProfile{
+  username: string
+  photo: string
+}
+

@@ -76,7 +76,7 @@ const Header = () => {
             </span>
 
             {data ? (
-              <Link href={"/profile"} className={scss.adminBtn}>
+              <Link href={"/auth/profile"} className={scss.adminBtn}>
                 {" "}
                 <img src={data.profile.photo} alt={data.profile.username} />
               </Link>

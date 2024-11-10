@@ -1,0 +1,43 @@
+.Hero {
+	.content {
+		display: flex;
+		position: relative;
+		gap: 3pc;
+		padding: 30px 0;
+
+		.link {
+			h1 {
+				font-size: 20px;
+				font-weight: 500;
+			}
+			.text {
+				display: flex;
+				position: relative;
+				align-items: center;
+				gap: 4pc;
+
+				.spans {
+					display: flex;
+
+					flex-direction: column;
+					gap: 15px;
+					span {
+						font-size: 13px;
+					}
+				}
+			}
+			display: flex;
+			flex-direction: column;
+			gap: 15px;
+		}
+		.ruler {
+			position: absolute;
+			height: 385px;
+			top: -1px;
+			left: 15pc;
+			width: 1px;
+			background: rgb(192, 192, 192);
+		}
+	
+	}
+}
