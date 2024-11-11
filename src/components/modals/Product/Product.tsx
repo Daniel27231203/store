@@ -88,8 +88,46 @@ const Product: FC<ProductProps> = ({
         </div>
       ) : (
         <div className={scss.box}>
-          <span className={scss.saleText}>${price}</span>
-          <p>rating</p>
+          <div className={scss.boxPrice}>
+            <span className={scss.saleText}>${price}</span>
+            <div className={scss.raitong}>
+              <div>
+                <FaStar
+                  style={{
+                    color: rating > 0 ? "yellow" : "gray",
+                  }}
+                />
+              </div>
+              <div>
+                <FaStar
+                  style={{
+                    color: rating > 1 ? "yellow" : "gray",
+                  }}
+                />
+              </div>
+              <div>
+                <FaStar
+                  style={{
+                    color: rating > 2 ? "yellow" : "gray",
+                  }}
+                />
+              </div>
+              <div>
+                <FaStar
+                  style={{
+                    color: rating > 3 ? "yellow" : "gray",
+                  }}
+                />
+              </div>
+              <div>
+                <FaStar
+                  style={{
+                    color: rating > 4 ? "yellow" : "gray",
+                  }}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       )}
       <button

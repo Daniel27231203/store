@@ -43,11 +43,7 @@
       display: flex;
       align-items: center;
       gap: 20px;
-      .saleText {
-        font-size: 20px;
-        font-weight: 700;
-        color: red;
-      }
+
       .price {
         font-size: 18px;
         font-weight: 700;
@@ -55,10 +51,15 @@
         text-decoration: line-through;
       }
     }
-    .saleText {
+    .boxPrice {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 20px;
+    }
+    .saleText {
+      font-size: 20px;
+      font-weight: 700;
+      color: red;
     }
   }
   button {
