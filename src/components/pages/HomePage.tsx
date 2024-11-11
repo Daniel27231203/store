@@ -5,6 +5,7 @@ import { useGetMeQuery } from "@/redux/api/auth";
 import Loading from "../modals/Loading/Loading";
 import Hero from "./HomeSections/Hero";
 import CategoriesSection from "./HomeSections/CategoriesSection";
+import BestSelling from "./HomeSections/BestSelling";
 
 const HomePage = () => {
   const { data, isLoading } = useGetMeQuery();
@@ -28,6 +29,7 @@ const HomePage = () => {
           <Hero />
           <Sale />
           <CategoriesSection />
+          <BestSelling />
         </>
       ) : null}
     </>
