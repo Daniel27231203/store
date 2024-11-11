@@ -6,6 +6,7 @@ import Loading from "../modals/Loading/Loading";
 import Hero from "./HomeSections/Hero";
 import CategoriesSection from "./HomeSections/CategoriesSection";
 import BestSelling from "./HomeSections/BestSelling";
+import ProductsSection from "./HomeSections/ProductsSection";
 
 const HomePage = () => {
   const { data, isLoading } = useGetMeQuery();
@@ -30,6 +31,7 @@ const HomePage = () => {
           <Sale />
           <CategoriesSection />
           <BestSelling />
+          <ProductsSection />
         </>
       ) : null}
     </>
