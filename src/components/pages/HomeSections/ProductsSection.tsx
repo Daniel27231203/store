@@ -65,6 +65,7 @@ const ProductsSection: FC = () => {
                       salePrice={+el.salePrice}
                       rating={el.rating}
                       id={el.id}
+                      user={el.user}
                     />
                   </div>
                 ))
