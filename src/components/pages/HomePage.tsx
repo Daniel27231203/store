@@ -7,6 +7,7 @@ import Hero from "./HomeSections/Hero";
 import CategoriesSection from "./HomeSections/CategoriesSection";
 import BestSelling from "./HomeSections/BestSelling";
 import ProductsSection from "./HomeSections/ProductsSection";
+import AuthPage from "./AuthPage";
 
 const HomePage = () => {
   const { data, isLoading } = useGetMeQuery();
@@ -33,7 +34,9 @@ const HomePage = () => {
           <BestSelling />
           <ProductsSection />
         </>
-      ) : null}
+      ) : (
+        <AuthPage />
+      )}
     </>
   );
 };
