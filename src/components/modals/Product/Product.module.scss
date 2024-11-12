@@ -17,16 +17,21 @@
       background-size: cover;
       border-radius: 15px;
     }
-    .faHearr {
+    .blockIcon {
       position: absolute;
-      top: 1px;
-      right: -100px;
-      background: none;
-      font-size: 25px;
+      top: 0;
+      right: 0;
       transition: transform 0.3s ease;
-      &:hover {
-        color: red;
-        transform: scale(1.1);
+      display: flex;
+      flex-direction: column;
+      background: none;
+      button {
+        background: none;
+        font-size: 25px;
+        &:hover {
+          color: red;
+          transform: scale(1.1);
+        }
       }
     }
   }

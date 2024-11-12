@@ -3,5 +3,11 @@ namespace PRODUCTS {
   type GetProductsRequest = number;
 
   type PostProductsResponse = ICreateProductResponse;
-  type PostProductsRequest = ICreateProduct;
+  type PostProductsRequest = {
+    id: number;
+    data: ICreateProduct;
+  };
+
+  type GetProductByIdResponse = Product;
+  type GetProductByIdRequest = number;
 }

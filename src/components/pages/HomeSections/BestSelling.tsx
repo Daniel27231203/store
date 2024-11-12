@@ -56,6 +56,7 @@ const BestSelling: FC = () => {
                     type={"sale"}
                     salePrice={+el.salePrice}
                     rating={el.rating}
+                    id={el.id}
                   />
                 </div>
               ))

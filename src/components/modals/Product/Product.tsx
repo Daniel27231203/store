@@ -4,6 +4,7 @@ import scss from "./Product.module.scss";
 import { FaStar } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import { FaRegHeart } from "react-icons/fa6";
+import { IoPencil } from "react-icons/io5";
 
 interface ProductProps {
   photo: string;
@@ -12,6 +13,7 @@ interface ProductProps {
   type: string;
   salePrice?: number;
   rating: number;
+  id: number;
 }
 const Product: FC<ProductProps> = ({
   photo,
@@ -20,6 +22,7 @@ const Product: FC<ProductProps> = ({
   type,
   salePrice,
   rating,
+  id,
 }) => {
   const router = useRouter();
   return (
@@ -27,9 +30,18 @@ const Product: FC<ProductProps> = ({
       {photo.length ? (
         <div className={scss.imageBg}>
           <img src={photo} alt={title} />
-          <button className={scss.faHearr}>
-            <FaRegHeart />
-          </button>
+          <div className={scss.blockIcon}>
+            <button>
+              <FaRegHeart />
+            </button>
+            <button
+              onClick={() => {
+                router.push(`/create/${id}`);
+              }}
+            >
+              <IoPencil />
+            </button>
+          </div>
         </div>
       ) : (
         <div>

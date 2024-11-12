@@ -23,7 +23,33 @@ const api = index.injectEndpoints({
       }),
       invalidatesTags: ["product"],
     }),
+    updateProduct: build.mutation<
+      PRODUCTS.PostProductsResponse,
+      PRODUCTS.PostProductsRequest
+    >({
+      query: ({ id, data }) => ({
+        url: `/products/${id}`,
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags: ["product"],
+    }),
+    getProductById: build.query<
+      PRODUCTS.GetProductByIdResponse,
+      PRODUCTS.GetProductByIdRequest
+    >({
+      query: (id) => ({
+        url: `/products/${id}`,
+        method: "GET",
+      }),
+      providesTags: ["product"],
+    }),
   }),
 });
 
-export const { useGetProductsQuery, useCreateProductMutation } = api;
+export const {
+  useGetProductsQuery,
+  useCreateProductMutation,
+  useUpdateProductMutation,
+  useGetProductByIdQuery,
+} = api;
