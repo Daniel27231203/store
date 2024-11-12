@@ -3,6 +3,7 @@ import React from "react";
 import scss from "./ProfilePage.module.scss";
 import { useGetMeQuery, useGetProfileMutation } from "@/redux/api/auth";
 import { SubmitHandler, useForm } from "react-hook-form";
+import Link from "next/link";
 
 const ProfilePage = () => {
   const [profileMutation] = useGetProfileMutation();
@@ -42,7 +43,7 @@ const ProfilePage = () => {
             </div>
             <div>
               <h1>
-                Welcome! <span>Md Rimel</span>
+                Welcome! <span>{data?.profile.username}</span>
               </h1>
             </div>
           </div>
@@ -56,12 +57,12 @@ const ProfilePage = () => {
           <div className={scss.profile}>
             <div className={scss.text}>
               <h1>Manage My Account</h1>
-              <p>My Profile</p>
-              <p>Address book</p>
-              <p>My Payment Options</p>
+              <Link href={"/auth/profiel"}>My Profile</Link>
+              <Link href={"/"}>Address book</Link>
+              <Link href={"/"}>My Payment Options</Link>
               <h1>My Orders</h1>
-              <p>My Returns</p>
-              <p>My Cancellations</p>
+              <Link href={"/"}>My Returns</Link>
+              <Link href={"/create"}>Create Products</Link>
               <h1>My Wishlist</h1>
             </div>
             <div className={scss.book}>

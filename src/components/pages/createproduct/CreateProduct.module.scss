@@ -1,0 +1,78 @@
+.CreateProduct {
+  padding: 40px 0;
+  .content {
+    .createHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      h2 {
+        font-size: 30px;
+        font-family: "Inter", sans-serif;
+        span {
+          color: rgb(219, 68, 68);
+        }
+      }
+      p {
+        font-size: 25px;
+        color: rgb(219, 68, 68);
+        font-family: sans-serif;
+      }
+    }
+    form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      min-height: 40vh;
+      gap: 10px;
+      input {
+        width: 400px;
+        padding: 10px;
+        border: none;
+        border-bottom: 2px solid gray;
+        outline: none;
+        transition: transform 0.3s ease;
+        &:hover {
+          border-bottom: 2px solid rgb(219, 68, 68);
+          border-radius: 15px;
+          transform: scale(1.1);
+        }
+      }
+      select {
+        width: 400px;
+        padding: 10px;
+        border: none;
+        border-bottom: 2px solid gray;
+        outline: none;
+        background: none;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          border-bottom: 2px solid rgb(219, 68, 68);
+          border-radius: 15px;
+          transform: scale(1.1);
+        }
+      }
+      button {
+        width: 200px;
+        padding: 10px 20px;
+        background: rgb(219, 68, 68);
+        color: white;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        &:hover {
+          background: rgb(219, 68, 68);
+          color: white;
+          transform: scale(1.1);
+        }
+        &:disabled {
+          background: gray;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}

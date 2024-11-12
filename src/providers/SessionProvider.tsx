@@ -18,8 +18,6 @@ const SessionProvider = ({ children }: { children: ReactNode }) => {
       tokens = JSON.parse(tokensString);
     } catch (error) {
       console.error("Ошибка парсинга токенов", error);
-      localStorage.removeItem("token");
-      router.push("/auth/sign-up");
       return;
     }
 
@@ -34,7 +32,6 @@ const SessionProvider = ({ children }: { children: ReactNode }) => {
       } catch (error) {
         console.error("Ошибка обновления токена", error);
         localStorage.removeItem("token");
-        router.push("/auth/sign-up");
       }
     } else {
       console.log("Токен живой!");

@@ -59,12 +59,30 @@ type Product = {
   updatedAt: string;
   salePrice: number;
   rating: number;
-
   user: User;
 };
 
-interface IProfile{
-  username: string
-  photo: string
+interface IProfile {
+  username: string;
+  photo: string;
 }
 
+interface ICreateProduct {
+  title: string;
+  price: string;
+  category: string;
+  description: string;
+  image: string;
+}
+
+interface ICreateProductResponse {
+  id: number;
+  userId: number;
+  title: string;
+  price: string;
+  category: string;
+  description: string;
+  image: string;
+  createdAt: string;
+  updatedAt: string;
+}

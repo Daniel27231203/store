@@ -10,9 +10,20 @@ const api = index.injectEndpoints({
         url: `/products?limit=${quantity}`,
         method: "GET",
       }),
-      providesTags: ["me"],
+      providesTags: ["product"],
+    }),
+    createProduct: build.mutation<
+      PRODUCTS.PostProductsResponse,
+      PRODUCTS.PostProductsRequest
+    >({
+      query: (body) => ({
+        url: `/products`,
+        method: "POST",
+        body: body,
+      }),
+      invalidatesTags: ["product"],
     }),
   }),
 });
 
-export const { useGetProductsQuery } = api;
+export const { useGetProductsQuery, useCreateProductMutation } = api;
