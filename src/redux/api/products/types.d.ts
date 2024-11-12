@@ -10,4 +10,7 @@ namespace PRODUCTS {
 
   type GetProductByIdResponse = Product;
   type GetProductByIdRequest = number;
+
+  type DeleteProductResponse = string;
+  type DeleteProductRequest = number;
 }

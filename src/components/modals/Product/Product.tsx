@@ -5,6 +5,9 @@ import { FaStar } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import { FaRegHeart } from "react-icons/fa6";
 import { IoPencil } from "react-icons/io5";
+import { useGetMeQuery } from "@/redux/api/auth";
+import { useDeleteProductMutation } from "@/redux/api/products";
+import { MdOutlineDelete } from "react-icons/md";
 
 interface ProductProps {
   photo: string;
@@ -14,7 +17,9 @@ interface ProductProps {
   salePrice?: number;
   rating: number;
   id: number;
+  user: User;
 }
+
 const Product: FC<ProductProps> = ({
   photo,
   title,
@@ -23,8 +28,32 @@ const Product: FC<ProductProps> = ({
   salePrice,
   rating,
   id,
+  user,
 }) => {
   const router = useRouter();
+  const { data } = useGetMeQuery();
+  const [deleteProductMutation] = useDeleteProductMutation();
+
+  const handleDelete = async () => {
+    try {
+      await deleteProductMutation(id).unwrap();
+      console.log("Product deleted successfully");
+    } catch (error) {
+      console.error("Failed to delete the product:", error);
+    }
+  };
+
+  const renderStars = (rating: number) => (
+    <>
+      {[...Array(5)].map((_, index) => (
+        <FaStar
+          key={index}
+          style={{ color: index < rating ? "yellow" : "gray" }}
+        />
+      ))}
+    </>
+  );
+
   return (
     <div className={scss.product}>
       {photo.length ? (
@@ -34,13 +63,16 @@ const Product: FC<ProductProps> = ({
             <button>
               <FaRegHeart />
             </button>
-            <button
-              onClick={() => {
-                router.push(`/create/${id}`);
-              }}
-            >
-              <IoPencil />
-            </button>
+            {+data?.profile.id === +user.id ? (
+              <>
+                <button onClick={() => router.push(`/create/${id}`)}>
+                  <IoPencil />
+                </button>
+                <button onClick={handleDelete}>
+                  <MdOutlineDelete />
+                </button>
+              </>
+            ) : null}
           </div>
         </div>
       ) : (
@@ -48,107 +80,24 @@ const Product: FC<ProductProps> = ({
           <img
             className={scss.imageBg}
             src="https://thumbs.dreamstime.com/b/product-not-available-icon-flat-isolated-vector-eps-illustration-minimal-design-long-shadow-118523643.jpg"
-            alt="hello"
+            alt="Product not available"
           />
         </div>
       )}
 
       <h4>{title}</h4>
-      {type == "sale" ? (
-        <div className={scss.box}>
+      <div className={scss.box}>
+        {type === "sale" && salePrice ? (
           <div className={scss.salebox}>
             <span className={scss.saleText}>${salePrice}</span>
             <span className={scss.price}>${price}</span>
           </div>
-          <div className={scss.raitong}>
-            <div>
-              <FaStar
-                style={{
-                  color: rating > 0 ? "yellow" : "gray",
-                }}
-              />
-            </div>
-            <div>
-              <FaStar
-                style={{
-                  color: rating > 1 ? "yellow" : "gray",
-                }}
-              />
-            </div>
-            <div>
-              <FaStar
-                style={{
-                  color: rating > 2 ? "yellow" : "gray",
-                }}
-              />
-            </div>
-            <div>
-              <FaStar
-                style={{
-                  color: rating > 3 ? "yellow" : "gray",
-                }}
-              />
-            </div>
-            <div>
-              <FaStar
-                style={{
-                  color: rating > 4 ? "yellow" : "gray",
-                }}
-              />
-            </div>
-          </div>
-        </div>
-      ) : (
-        <div className={scss.box}>
-          <div className={scss.boxPrice}>
-            <span className={scss.saleText}>${price}</span>
-            <div className={scss.raitong}>
-              <div>
-                <FaStar
-                  style={{
-                    color: rating > 0 ? "yellow" : "gray",
-                  }}
-                />
-              </div>
-              <div>
-                <FaStar
-                  style={{
-                    color: rating > 1 ? "yellow" : "gray",
-                  }}
-                />
-              </div>
-              <div>
-                <FaStar
-                  style={{
-                    color: rating > 2 ? "yellow" : "gray",
-                  }}
-                />
-              </div>
-              <div>
-                <FaStar
-                  style={{
-                    color: rating > 3 ? "yellow" : "gray",
-                  }}
-                />
-              </div>
-              <div>
-                <FaStar
-                  style={{
-                    color: rating > 4 ? "yellow" : "gray",
-                  }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-      <button
-        onClick={() => {
-          router.push(`/cart`);
-        }}
-      >
-        add to card
-      </button>
+        ) : (
+          <span className={scss.saleText}>${price}</span>
+        )}
+        <div className={scss.rating}>{renderStars(rating)}</div>
+      </div>
+      <button onClick={() => router.push(`/cart`)}>Add to cart</button>
     </div>
   );
 };
