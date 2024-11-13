@@ -63,6 +63,17 @@ const api = index.injectEndpoints({
         method: "GET",
       }),
       providesTags: ["product"],
+
+    DeleteProduct: build.mutation<
+      PRODUCTS.DeleteProductResponse,
+      PRODUCTS.DeleteProductRequest
+    >({
+      query: (id) => ({
+        url: `/products/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["product"],
+
     }),
   }),
 });
@@ -74,4 +85,6 @@ export const {
   useGetProductByIdQuery,
   useGetProductCategoriesQuery,
   useGetProductCategoriesByCategoryQuery,
+  useDeleteProductMutation,
+
 } = api;

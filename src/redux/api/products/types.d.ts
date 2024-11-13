@@ -16,4 +16,8 @@ namespace PRODUCTS {
 
   type GetProductCategoryResponseByCategory = Product[];
   type GetProductCategoryRequestByCategory = string;
+
+  type DeleteProductResponse = string;
+  type DeleteProductRequest = number;
+
 }
