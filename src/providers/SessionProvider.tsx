@@ -7,7 +7,6 @@ const SessionProvider = ({ children }: { children: ReactNode }) => {
   const pathname = usePathname();
   const [refreshTokenMutation] = useRefreshMutation();
   const router = useRouter();
-  console.log("hello Session");
 
   const checkAccessToken = async () => {
     const tokensString = localStorage.getItem("token");
@@ -30,7 +29,7 @@ const SessionProvider = ({ children }: { children: ReactNode }) => {
         const { data } = await refreshTokenMutation(refreshToken);
         localStorage.removeItem("token");
         localStorage.setItem("token", JSON.stringify(data));
-        window.location.reload();
+        router.push(pathname);  // Переход на текущую страницу без перезагрузки
       } catch (error) {
         console.error("Ошибка обновления токена", error);
         localStorage.removeItem("token");
@@ -42,7 +41,10 @@ const SessionProvider = ({ children }: { children: ReactNode }) => {
   };
 
   useEffect(() => {
-    checkAccessToken();
+    const checkToken = async () => {
+      await checkAccessToken();
+    };
+    checkToken();
   }, [pathname]);
 
   return <>{children}</>;

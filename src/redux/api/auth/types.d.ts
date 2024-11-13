@@ -7,7 +7,7 @@ namespace AUTH {
 
   type RessetRequest = RessetPassword;
 
-  type GetSingInResponse = ForgotPasswordResponse;
+  type GetSingInResponse =SingUpResponse ;
   type GetSingInRequest = {
     email: string;
     password: string;
