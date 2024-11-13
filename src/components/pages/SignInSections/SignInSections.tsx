@@ -24,10 +24,10 @@ const SignInSections = () => {
       password: data.password,
     };
     try {
-      const { data: infa } = await signInMutation(userData);
+      const { data: infa, error } = await signInMutation(userData);
       localStorage.setItem("token", JSON.stringify(infa));
-      router.push("/auth/profile");
-      window.location.reload();
+      !error ?  (router.push("/auth/profile"),
+     window.location.reload()) : alert("Auth Error")
       reset();
     } catch (err) {
       console.error("Ошибка авторизации:", err);

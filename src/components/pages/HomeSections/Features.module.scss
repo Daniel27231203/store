@@ -1,0 +1,36 @@
+
+.features{
+  margin-top: 100px;
+}
+
+.featuresContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .feature {
+    text-align: center;
+   padding: 20px;
+
+  
+    .featureIcon {
+      font-size: 2rem;
+      background-color: #000;
+      color: #fff;
+      border-radius: 50%;
+      padding: 20px 25px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+  
+    .featureTitle {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+  
+    .featureDescription {
+      color: #666;
+    }
+  }
