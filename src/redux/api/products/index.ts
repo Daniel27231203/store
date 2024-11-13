@@ -44,6 +44,26 @@ const api = index.injectEndpoints({
       }),
       providesTags: ["product"],
     }),
+    getProductCategories: build.query<
+      PRODUCTS.GetProductCategoryResponse,
+      PRODUCTS.GetProductCategoryRequest
+    >({
+      query: () => ({
+        url: `/products/categories`,
+        method: "GET",
+      }),
+      providesTags: ["product"],
+    }),
+    getProductCategoriesByCategory: build.query<
+      PRODUCTS.GetProductCategoryResponseByCategory,
+      PRODUCTS.GetProductCategoryRequestByCategory
+    >({
+      query: (category) => ({
+        url: `/products/category/${category}`,
+        method: "GET",
+      }),
+      providesTags: ["product"],
+    }),
   }),
 });
 
@@ -52,4 +72,6 @@ export const {
   useCreateProductMutation,
   useUpdateProductMutation,
   useGetProductByIdQuery,
+  useGetProductCategoriesQuery,
+  useGetProductCategoriesByCategoryQuery,
 } = api;

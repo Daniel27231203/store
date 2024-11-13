@@ -19,7 +19,6 @@ const Sale: FC = () => {
   const router = useRouter();
 
   const [sale, setSale] = useState<Product[]>([]);
-  console.log("🚀 ~ sale:", sale);
 
   const { data, isLoading } = useGetProductsQuery(10);
   useEffect(() => {

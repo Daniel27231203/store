@@ -10,4 +10,10 @@ namespace PRODUCTS {
 
   type GetProductByIdResponse = Product;
   type GetProductByIdRequest = number;
+
+  type GetProductCategoryResponse = [];
+  type GetProductCategoryRequest = void;
+
+  type GetProductCategoryResponseByCategory = Product[];
+  type GetProductCategoryRequestByCategory = string;
 }

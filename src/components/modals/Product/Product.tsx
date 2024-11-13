@@ -57,7 +57,7 @@ const Product: FC<ProductProps> = ({
       {type == "sale" ? (
         <div className={scss.box}>
           <div className={scss.salebox}>
-            <span className={scss.saleText}>${salePrice}</span>
+            <span className={scss.saleText}>${Math.floor(salePrice!)}</span>
             <span className={scss.price}>${price}</span>
           </div>
           <div className={scss.raitong}>
