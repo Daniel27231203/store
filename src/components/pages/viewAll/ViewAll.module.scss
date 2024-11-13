@@ -1,0 +1,66 @@
+.ViewAll {
+  padding: 20px 0;
+  .content {
+    .allProductsHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      h2 {
+        font-size: 30px;
+        font-family: "Inter", sans-serif;
+        span {
+          color: rgb(219, 68, 68);
+        }
+      }
+      select {
+        width: 400px;
+        padding: 10px;
+        border: none;
+        border-bottom: 2px solid gray;
+        outline: none;
+        background: none;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          border-bottom: 2px solid rgb(219, 68, 68);
+          border-radius: 15px;
+          transform: scale(1.1);
+        }
+      }
+    }
+    .Name {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      .viewProducts {
+        padding: 20px 0;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .more {
+        width: 200px;
+        padding: 10px 20px;
+        background: rgb(219, 68, 68);
+        color: white;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        &:hover {
+          background: rgb(219, 68, 68);
+          color: white;
+          transform: scale(1.1);
+        }
+        &:disabled {
+          background: gray;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
