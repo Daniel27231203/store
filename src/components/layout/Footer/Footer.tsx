@@ -9,6 +9,8 @@ import { FaGooglePlay } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
 import Qrg from "../../../assets/image/Qrcode 1.png";
 
+
+
 const Footer = () => {
 	return (
 		<div className={scss.Footer}>
