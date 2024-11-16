@@ -1,0 +1,45 @@
+.AboutClick{
+  .content{
+    padding: 5pc 0;
+    .log{
+display: flex;
+justify-content: space-between;
+    
+    .click{
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      .img{
+        background: rgb(245, 245, 245);
+        width: 350px;
+        padding: 30px 0 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .icons{
+        display: flex;
+        gap: 9px;
+
+      }
+    }
+    .slider{
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      .img{
+        background: rgb(245, 245, 245);
+        width: 350px;
+        padding: 30px 0 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .icons{
+        display: flex;
+        gap: 9px;
+
+      }
+    }
+  }}
+}
