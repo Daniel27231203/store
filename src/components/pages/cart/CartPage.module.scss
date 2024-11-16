@@ -1,0 +1,104 @@
+.CartPage {
+  padding: 40px 0;
+  .content {
+    .CartTitle {
+      p {
+        font-family: sans-serif;
+        font-size: 18px;
+        color: gray;
+        span {
+          color: rgb(219, 68, 68);
+          font-weight: 700;
+        }
+      }
+    }
+    .CartTable {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+
+        th,
+        td {
+          border: 1px solid #ddd;
+          padding: 12px;
+          text-align: left;
+          .quantity {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            button {
+              padding: 5px;
+              background: none;
+              border: 1px solid #ddd;
+              color: black;
+              transition: transform 0.3s ease;
+              &:hover {
+                transform: scale(1.1);
+              }
+            }
+          }
+        }
+        .td {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          img {
+            width: 50px;
+          }
+        }
+
+        th {
+          background-color: #f8f8f8;
+          font-weight: bold;
+        }
+
+        tfoot td {
+          font-weight: bold;
+        }
+
+        input {
+          width: 60px;
+          text-align: center;
+          padding: 5px;
+        }
+
+        button {
+          padding: 5px 10px;
+          background-color: #ff4d4d;
+          color: white;
+          border: none;
+          border-radius: 3px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #ff1a1a;
+          }
+        }
+      }
+      .btnBlock {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        button {
+          padding: 10px 40px;
+          font-weight: 700;
+          font-size: 15px;
+          color: black;
+          border-radius: 5px;
+          border: 1px solid gray;
+          cursor: pointer;
+          transition: transform 0.3s ease;
+          &:hover {
+            background-color: #ff4d4d;
+            color: white;
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+}

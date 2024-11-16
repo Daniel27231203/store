@@ -86,3 +86,23 @@ interface ICreateProductResponse {
   createdAt: string;
   updatedAt: string;
 }
+
+interface ProductProps {
+  photo: string;
+  title: string;
+  price: number;
+  type: string;
+  salePrice?: number;
+  rating: number;
+  id: number;
+  user: User;
+}
+
+interface BasketProduct {
+  id: number;
+  title: string;
+  price: number;
+  salePrice?: number;
+  photo: string;
+  quantity: number;
+}

@@ -8,17 +8,7 @@ import { IoPencil } from "react-icons/io5";
 import { useGetMeQuery } from "@/redux/api/auth";
 import { useDeleteProductMutation } from "@/redux/api/products";
 import { MdOutlineDelete } from "react-icons/md";
-
-interface ProductProps {
-  photo: string;
-  title: string;
-  price: number;
-  type: string;
-  salePrice?: number;
-  rating: number;
-  id: number;
-  user: User;
-}
+import useStore from "@/zustand/store";
 
 const Product: FC<ProductProps> = ({
   photo,
@@ -33,6 +23,7 @@ const Product: FC<ProductProps> = ({
   const router = useRouter();
   const { data } = useGetMeQuery();
   const [deleteProductMutation] = useDeleteProductMutation();
+  const { addToCart, basket } = useStore();
 
   const handleDelete = async () => {
     try {
@@ -53,6 +44,23 @@ const Product: FC<ProductProps> = ({
       ))}
     </>
   );
+
+  const handleAddCart = () => {
+    if (basket.some((el) => el.id === id)) {
+      router.push("/cart");
+    } else {
+      const basketData: BasketProduct = {
+        id,
+        title,
+        price,
+        salePrice,
+        photo,
+        quantity: 1,
+      };
+      addToCart({ ...basketData });
+      router.push("/cart");
+    }
+  };
 
   return (
     <div className={scss.product}>
@@ -97,7 +105,13 @@ const Product: FC<ProductProps> = ({
         )}
         <div className={scss.rating}>{renderStars(rating)}</div>
       </div>
-      <button onClick={() => router.push(`/cart`)}>Add to cart</button>
+      <button
+        onClick={() => {
+          handleAddCart();
+        }}
+      >
+        Add to cart
+      </button>
     </div>
   );
 };
