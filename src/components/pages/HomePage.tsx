@@ -8,6 +8,9 @@ import CategoriesSection from "./HomeSections/CategoriesSection";
 import BestSelling from "./HomeSections/BestSelling";
 import ProductsSection from "./HomeSections/ProductsSection";
 import AuthPage from "./AuthPage";
+import MusicExperience from "./HomeSections/MusicExperience";
+import NewArrival from "./HomeSections/NewArrival";
+import Features from "./HomeSections/Features";
 
 const HomePage = () => {
   const { data, isLoading } = useGetMeQuery();
@@ -32,7 +35,10 @@ const HomePage = () => {
           <Sale />
           <CategoriesSection />
           <BestSelling />
+          <MusicExperience />
           <ProductsSection />
+          <NewArrival />
+          <Features />
         </>
       ) : (
         <AuthPage />
