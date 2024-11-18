@@ -13,7 +13,7 @@ const CreateProduct: FC = () => {
   const router = useRouter();
 
   const onSubmit: SubmitHandler<ICreateProduct> = async (data) => {
-    const productData: ICreateProduct = {
+    const productData: any = {
       title: data.title,
       price: data.price,
       category: data.category,
