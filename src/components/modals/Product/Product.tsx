@@ -1,14 +1,33 @@
 "use client";
-import { FC } from "react";
+import { FC, useCallback, useState } from "react";
 import scss from "./Product.module.scss";
-import { FaStar } from "react-icons/fa";
-import { useRouter } from "next/navigation";
-import { FaRegHeart } from "react-icons/fa6";
+import { FaStar, FaRegHeart } from "react-icons/fa";
 import { IoPencil } from "react-icons/io5";
+import { MdOutlineDelete } from "react-icons/md";
+import { useRouter } from "next/navigation";
 import { useGetMeQuery } from "@/redux/api/auth";
 import { useDeleteProductMutation } from "@/redux/api/products";
-import { MdOutlineDelete } from "react-icons/md";
 import useStore from "@/zustand/store";
+
+interface ProductProps {
+  photo: string;
+  title: string;
+  price: number;
+  type: string;
+  salePrice?: number;
+  rating: number;
+  id: number;
+  user: { id: number };
+}
+
+interface BasketProduct {
+  id: number;
+  title: string;
+  price: number;
+  salePrice?: number;
+  photo: string;
+  quantity: number;
+}
 
 const Product: FC<ProductProps> = ({
   photo,
@@ -24,25 +43,33 @@ const Product: FC<ProductProps> = ({
   const { data } = useGetMeQuery();
   const [deleteProductMutation] = useDeleteProductMutation();
   const { addToCart, basket } = useStore();
+  const [loading, setLoading] = useState(false);
 
   const handleDelete = async () => {
+    if (loading) return;
+    setLoading(true);
     try {
       await deleteProductMutation(id).unwrap();
       console.log("Product deleted successfully");
     } catch (error) {
       console.error("Failed to delete the product:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
-  const renderStars = (rating: number) => (
-    <>
-      {[...Array(5)].map((_, index) => (
-        <FaStar
-          key={index}
-          style={{ color: index < rating ? "yellow" : "gray" }}
-        />
-      ))}
-    </>
+  const renderStars = useCallback(
+    (rating: number) => (
+      <>
+        {[...Array(5)].map((_, index) => (
+          <FaStar
+            key={index}
+            style={{ color: index < rating ? "yellow" : "gray" }}
+          />
+        ))}
+      </>
+    ),
+    []
   );
 
   const handleAddCart = () => {
@@ -62,25 +89,34 @@ const Product: FC<ProductProps> = ({
     }
   };
 
+  if (!data || !data.profile) return null;
+
   return (
     <div className={scss.product}>
-      {photo.length ? (
+      {photo ? (
         <div className={scss.imageBg}>
           <img src={photo} alt={title} />
           <div className={scss.blockIcon}>
-            <button>
+            <button aria-label="Add to favorites">
               <FaRegHeart />
             </button>
-            {+data?.profile.id === +user.id ? (
+            {+data.profile.id === +user.id && (
               <>
-                <button onClick={() => router.push(`/create/${id}`)}>
+                <button
+                  onClick={() => router.push(`/create/${id}`)}
+                  aria-label="Edit product"
+                >
                   <IoPencil />
                 </button>
-                <button onClick={handleDelete}>
+                <button
+                  onClick={handleDelete}
+                  aria-label="Delete product"
+                  disabled={loading}
+                >
                   <MdOutlineDelete />
                 </button>
               </>
-            ) : null}
+            )}
           </div>
         </div>
       ) : (
@@ -97,7 +133,7 @@ const Product: FC<ProductProps> = ({
       <div className={scss.box}>
         {type === "sale" && salePrice ? (
           <div className={scss.salebox}>
-            <span className={scss.saleText}>${Math.floor(salePrice!)}</span>
+            <span className={scss.saleText}>${Math.floor(salePrice)}</span>
             <span className={scss.price}>${price}</span>
           </div>
         ) : (
@@ -105,11 +141,7 @@ const Product: FC<ProductProps> = ({
         )}
         <div className={scss.rating}>{renderStars(rating)}</div>
       </div>
-      <button
-        onClick={() => {
-          handleAddCart();
-        }}
-      >
+      <button onClick={handleAddCart} aria-label="Add to cart">
         Add to cart
       </button>
     </div>
